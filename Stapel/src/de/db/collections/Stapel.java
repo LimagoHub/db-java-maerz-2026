@@ -1,9 +1,9 @@
 package de.db.collections;
 
-public class Stapel {
+public class Stapel<T> {
 
     private static final int DEFAULT_SIZE = 10;
-    private int[] data;
+    private T[] data;
     private int index;
 
     public Stapel() {
@@ -11,17 +11,19 @@ public class Stapel {
     }
 
     public Stapel(int size) {
-        data =new int[size<1?DEFAULT_SIZE:size];
+        data =(T []) new Object[size<1?DEFAULT_SIZE:size];
         index=0;
     }
 
-    public void push(int value) {
+    public void push(T value) {
+
+
         if(isFull()) return;
         data[index++] = value;
     }
 
-    public int pop() {
-        if(isEmpty()) return 0;
+    public T pop() {
+        if(isEmpty()) return null;
         return data[--index];
     }
 
