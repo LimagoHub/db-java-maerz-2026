@@ -1,6 +1,7 @@
 package main;
 
 import de.db.collections.Stapel;
+import de.db.collections.StapelException;
 import geometrie.Kreis;
 import geometrie.Punkt;
 import tiere.Schwein;
@@ -8,6 +9,19 @@ import tiere.Schwein;
 public class Main {
     public static void main(String[] args) {
 
+
+        try {
+            myMethod();
+
+        } catch (StapelException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Dieser Fehler sollte nicht auftreten, ist er aber!!!!");
+        }
+
+    }
+
+    private static void myMethod() throws StapelException {
         Stapel<Punkt> stapel = new Stapel<>(40);
 
 

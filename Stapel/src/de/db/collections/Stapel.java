@@ -6,24 +6,28 @@ public class Stapel<T> {
     private T[] data;
     private int index;
 
-    public Stapel() {
+    public Stapel() throws StapelException {
         this(DEFAULT_SIZE);
     }
 
-    public Stapel(int size) {
-        data =(T []) new Object[size<1?DEFAULT_SIZE:size];
-        index=0;
+    public Stapel(int size) throws StapelException {
+        try {
+            data =(T []) new Object[size];
+            index=0;
+        } catch (Exception e) {
+            throw new StapelException("Illegal Size", e);
+        }
     }
 
-    public void push(T value) {
+    public void push(T value) throws StapelException {
 
 
-        if(isFull()) return;
+        if(isFull()) throw new StapelException("Overflow");
         data[index++] = value;
     }
 
-    public T pop() {
-        if(isEmpty()) return null;
+    public T pop() throws StapelException {
+        if(isEmpty()) throw new StapelException("Underflow");
         return data[--index];
     }
 
