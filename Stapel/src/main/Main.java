@@ -6,7 +6,11 @@ import geometrie.Kreis;
 import geometrie.Punkt;
 import tiere.Schwein;
 
+import java.util.logging.Logger;
+
 public class Main {
+
+    static Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
 
 
@@ -16,7 +20,7 @@ public class Main {
         } catch (StapelException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            System.out.println("Dieser Fehler sollte nicht auftreten, ist er aber!!!!");
+            logger.severe("Dieser Fehler sollte nicht auftreten, ist er aber!!!!");
         }
 
     }
