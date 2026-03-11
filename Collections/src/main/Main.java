@@ -17,13 +17,22 @@ public class Main {
 
          */
 
-        try(Scanner scanner = new Scanner(System.in)){
+        final List<String> woerter = new ArrayList<>();
+        try(final Scanner scanner = new Scanner(System.in)){
 
-            System.out.println("Bitte geben Sie ein Wort ein: ");
+            while(true) {
+                System.out.println("Bitte geben Sie ein Wort ein: ");
+                final String wort = scanner.nextLine();
+                if(wort.equals("stop"))break;
+                woerter.add(wort);
+            }
 
-            String wort = scanner.nextLine();
+            for(String wort : woerter.reversed()) {
+                System.out.println(wort);
+            }
 
-            System.out.println("Hallo: " + wort + "");
+            while(! woerter.isEmpty())
+                System.out.println( woerter.removeLast());
         }
 
 
