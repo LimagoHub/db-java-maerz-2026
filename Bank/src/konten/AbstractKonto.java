@@ -1,8 +1,13 @@
 package konten;
 
-public class AbstractKonto {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-    private AbstractKonto parent;
+public abstract class AbstractKonto implements Iterable<AbstractKonto>{
+
+    private AbstractKonto parent=null;
     private String bezeichnung;
 
     public AbstractKonto(String bezeichnung) {
@@ -25,12 +30,30 @@ public class AbstractKonto {
         this.bezeichnung = bezeichnung;
     }
 
+    public List<AbstractKonto> getChildren() {
+        return Collections.emptyList();
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder(getClass().getSimpleName());
-        sb.append(" parent=").append(parent.bezeichnung);
+        //sb.append(" parent=").append(parent.bezeichnung);
         sb.append(", bezeichnung='").append(bezeichnung).append('\'');
 
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<AbstractKonto> iterator() {
+        List<AbstractKonto> result = new ArrayList<>();
+        iteratorHelper(result);
+        return result.iterator();
+    }
+
+    private void iteratorHelper(List<AbstractKonto> result) {
+        result.add(this);
+        for (AbstractKonto child : getChildren()) {
+            child.iteratorHelper(result);
+        }
     }
 }

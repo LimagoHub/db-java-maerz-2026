@@ -10,12 +10,14 @@ import java.util.TreeSet;
 public class Main {
 
     public static void main(String[] args) {
-        var set = new TreeSet<Schwein>(new MyComparator());
+        Comparator<Schwein> comp = Comparator.comparingInt(Schwein::getGewicht).thenComparing(Schwein::getName);
+        //Comparator<Schwein> comp = Comparator.naturalOrder();
+        var set = new TreeSet<Schwein>(comp);
         set.add(new Schwein("Piggy", 10));
         set.add(new Schwein("Piggy", 10));
         set.add(new Schwein("Babe", 12));
         set.add(new Schwein("Rudi Ruessel", 9));
-        set.add(new Schwein("Frederick", 11));
+        set.add(new Schwein("Frederick", 10));
         set.add(new Schwein("Frederick", 11));
 
         for (var s : set) {

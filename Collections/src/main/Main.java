@@ -17,7 +17,18 @@ public class Main {
 
          */
 
-        final List<String> woerter = new ArrayList<>();
+
+        List<String> woerter = new ArrayList<>(List.of("Hallo", "Welt", "stop", "stop", "stop", "stop"));
+
+
+        Iterator<String> it = woerter.iterator();
+
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+
+
+        /*final List<String> woerter = new ArrayList<>();
         try(final Scanner scanner = new Scanner(System.in)){
 
             while(true) {
@@ -34,7 +45,7 @@ public class Main {
             while(! woerter.isEmpty())
                 System.out.println( woerter.removeLast());
         }
-
+    */
 
 
 

@@ -1,5 +1,6 @@
 package main;
 
+import konten.AbstractKonto;
 import konten.Konto;
 import konten.Kontogruppe;
 
@@ -64,5 +65,14 @@ public class Main {
         root.appendChild(new Konto("Privatsteuern", 1200.00));
         root.appendChild(new Konto("Versicherungen", 800.00));
         root.appendChild(new Konto("Sonstiges Privat", 150.00));
+
+        root.forEach(System.out::println);
+    }
+
+    static void travers(AbstractKonto abstractKonto) {
+        System.out.println(abstractKonto);
+        for (AbstractKonto child : abstractKonto.getChildren()) {
+            travers(child);
+        }
     }
 }
