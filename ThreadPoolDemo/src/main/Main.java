@@ -16,7 +16,9 @@ public class Main {
             service.execute(this::workerMethod);
         }
         service.shutdown();
+        System.out.println("????");
         service.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+        System.out.println("Done");
     }
 
     private void workerMethod() {
