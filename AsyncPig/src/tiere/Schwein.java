@@ -30,9 +30,15 @@ public class Schwein {
 
     // Async
     public void fuettern() {
+
+      new Thread(this::futternImpl).start();
+    }
+
+    private void futternImpl() {
+
         try {
             Thread.sleep(2000);
-            this.setGewicht(this.getGewicht() + 1);
+            setGewicht(getGewicht() + 1);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new RuntimeException(e);
@@ -47,4 +53,6 @@ public class Schwein {
         sb.append('}');
         return sb.toString();
     }
+
+
 }
