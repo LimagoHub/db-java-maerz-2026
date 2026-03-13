@@ -4,6 +4,6 @@ import de.dep.Dependency;
 
 public class Main {
     public static void main(String[] args) {
-        Dependency.create("B").drucken();
+        Dependency.create("A").drucken();
     }
 }

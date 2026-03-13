@@ -1,6 +1,7 @@
-package presentation;
+package gui;
 
-import persistence.Person;
+
+import repo.Person;
 
 import javax.swing.*;
 import java.awt.*;
