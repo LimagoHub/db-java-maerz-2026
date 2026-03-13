@@ -18,6 +18,7 @@ public class VirtualTable implements AutoCloseable {
 
     public VirtualTable(final String selectStament) {
         this.selectStament = selectStament;
+
     }
 
     public long getColumnCount()  throws Exception{
