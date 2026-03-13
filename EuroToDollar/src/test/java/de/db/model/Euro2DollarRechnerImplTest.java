@@ -1,0 +1,10 @@
+package de.db.model;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+@ExtendWith(MockitoExtension.class)
+class Euro2DollarRechnerImplTest {
+
+
+}

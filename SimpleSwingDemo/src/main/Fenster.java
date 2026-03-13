@@ -35,19 +35,28 @@ public class Fenster extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent e) {
-                dispose();
+                beenden();
             }
         });
 
         // Hauptmaske
         setLayout(new BorderLayout());
 
-
         add(getCenterPanel(), BorderLayout.CENTER);
         add(getSouthPanel(), BorderLayout.SOUTH);
         pack();
     }
 
+    private void beenden() {
+        // Daten retten
+        dispose();
+    }
+
+    private void onRechnen() {
+        double euro = Double.parseDouble(getEuroField().getText().replace(",", "."));
+        double dollar = euro * 1.09;
+        getDollarField().setText(String.format("%.2f", dollar));
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(()-> new  Fenster().setVisible(true));
@@ -57,7 +66,7 @@ public class Fenster extends JFrame {
     private JButton getRechnen() {
         if( rechnen == null ) {
             rechnen = new JButton("Rechnen");
-
+            rechnen.addActionListener(e->onRechnen());
         }
         return rechnen;
     }
@@ -65,7 +74,7 @@ public class Fenster extends JFrame {
     private JButton getBeenden() {
         if( beenden == null ) {
             beenden = new JButton("Beenden");
-
+            beenden.addActionListener(e->beenden());
         }
         return beenden;
     }
