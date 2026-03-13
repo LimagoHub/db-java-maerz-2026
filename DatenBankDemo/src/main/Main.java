@@ -19,6 +19,8 @@ public class Main {
                 }
                 System.out.println();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
        //Class.forName(DRIVER);
@@ -47,6 +49,7 @@ public class Main {
                    while(rs.next()){
                        for (int column = 1, n = metaData.getColumnCount(); column <= n ; column++) {
                            System.out.printf("%-30s",rs.getString(column));
+                            System.out.printf("%-30s",rs.getString(column));
                        }
                        System.out.println();
                    }

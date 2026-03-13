@@ -1,4 +1,4 @@
-package main;
+package persistence;
 
 import java.sql.*;
 import java.util.Map;
